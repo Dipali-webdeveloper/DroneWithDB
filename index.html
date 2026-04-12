@@ -1,0 +1,720 @@
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Dronacharya Creation | Cinematic Photography & Videography</title>
+	    <meta name="description" content="Premium photography, videography, drone shoots, and video editing services. Crafting visual stories with precision and passion.">
+	    <script src="https://cdn.tailwindcss.com"></script>
+	    <script>
+	        tailwind.config = {
+	            theme: {
+	                extend: {
+	                    colors: {
+	                        gold: '#D4AF37',
+	                        goldLight: '#E8D5A3',
+	                        dark: '#1a1a1a'
+	                    },
+	                    fontFamily: {
+	                        sans: ['Inter', 'system-ui', 'sans-serif'],
+	                        serif: ['Playfair Display', 'serif']
+	                    }
+	                }
+	            }
+	        }
+	    </script>
+	    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+	    <style>
+	        * {
+	            scroll-behavior: smooth;
+	        }
+	        body {
+	            font-family: 'Inter', sans-serif;
+	            overflow-x: hidden;
+	        }
+	        h1, h2, h3, h4, h5, h6 {
+	            font-family: 'Playfair Display', serif;
+	        }
+	        .gold-gradient {
+	            background: linear-gradient(135deg, #D4AF37 0%, #E8D5A3 100%);
+	        }
+	        .hero-bg {
+	            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+	                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+	            background-size: cover;
+	            background-position: center;
+	            background-attachment: fixed;
+	        }
+	        .card-hover {
+	            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	        }
+	        .card-hover:hover {
+	            transform: translateY(-10px) scale(1.02);
+	            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
+	        }
+	        .gallery-item {
+	            position: relative;
+	            overflow: hidden;
+	        }
+	        .gallery-item img {
+	            transition: transform 0.5s ease;
+	        }
+	        .gallery-item:hover img {
+	            transform: scale(1.1);
+	        }
+	        .gallery-overlay {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background: linear-gradient(to top, rgba(212,175,55,0.9) 0%, transparent 60%);
+	            opacity: 0;
+	            transition: opacity 0.3s ease;
+	            display: flex;
+	            align-items: flex-end;
+	            padding: 20px;
+	        }
+	        .gallery-item:hover .gallery-overlay {
+	            opacity: 1;
+	        }
+	        .nav-link {
+	            position: relative;
+	        }
+	        .nav-link::after {
+	            content: '';
+	            position: absolute;
+	            bottom: -2px;
+	            left: 0;
+	            width: 0;
+	            height: 2px;
+	            background: #D4AF37;
+	            transition: width 0.3s ease;
+	        }
+	        .nav-link:hover::after {
+	            width: 100%;
+	        }
+	        .btn-primary {
+	            background: linear-gradient(135deg, #D4AF37 0%, #B8962D 100%);
+	            transition: all 0.3s ease;
+	        }
+	        .btn-primary:hover {
+	            transform: translateY(-3px);
+	            box-shadow: 0 10px 20px rgba(212,175,55,0.3);
+	        }
+	        .animate-fade-in {
+	            animation: fadeIn 1s ease forwards;
+	        }
+	        @keyframes fadeIn {
+	            from { opacity: 0; transform: translateY(20px); }
+	            to { opacity: 1; transform: translateY(0); }
+	        }
+	        .stagger-1 { animation-delay: 0.1s; }
+	        .stagger-2 { animation-delay: 0.2s; }
+	        .stagger-3 { animation-delay: 0.3s; }
+	        .stagger-4 { animation-delay: 0.4s; }
+	        .parallax-section {
+	            background-attachment: fixed;
+	            background-position: center;
+	            background-repeat: no-repeat;
+	            background-size: cover;
+	        }
+	        .testimonial-card {
+	            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+	        }
+	        .contact-input:focus {
+	            border-color: #D4AF37;
+	            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+	        }
+	        /* Custom scrollbar */
+	        ::-webkit-scrollbar {
+	            width: 8px;
+	        }
+	        ::-webkit-scrollbar-track {
+	            background: #f1f1f1;
+	        }
+	        ::-webkit-scrollbar-thumb {
+	            background: #D4AF37;
+	            border-radius: 4px;
+	        }
+	    </style>
+	</head>
+	<body class="bg-white text-gray-800">
+	<!-- Navigation -->
+	<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300" id="navbar">
+	    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	        <div class="flex justify-between items-center py-4">
+	            <div class="flex items-center space-x-2">
+	                <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center">
+	                    <span class="text-white font-bold text-lg">DC</span>
+	                </div>
+	                <span class="font-serif text-xl font-semibold text-gray-900">Dronacharya Creation</span>
+	            </div>
+	            <div class="hidden md:flex items-center space-x-8">
+	                <a href="#home" class="nav-link text-gray-700 hover:text-gold transition-colors font-medium">Home</a>
+	                <a href="#about" class="nav-link text-gray-700 hover:text-gold transition-colors font-medium">About</a>
+	                <a href="#services" class="nav-link text-gray-700 hover:text-gold transition-colors font-medium">Services</a>
+	                <a href="#portfolio" class="nav-link text-gray-700 hover:text-gold transition-colors font-medium">Portfolio</a>
+	                <a href="#contact" class="nav-link text-gray-700 hover:text-gold transition-colors font-medium">Contact</a>
+	            </div>
+	            <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+	                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+	                </svg>
+	            </button>
+	        </div>
+	    </div>
+	    <!-- Mobile Menu -->
+	    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+	        <div class="px-4 py-3 space-y-3">
+	            <a href="#home" class="block text-gray-700 hover:text-gold font-medium">Home</a>
+	            <a href="#about" class="block text-gray-700 hover:text-gold font-medium">About</a>
+	            <a href="#services" class="block text-gray-700 hover:text-gold font-medium">Services</a>
+	            <a href="#portfolio" class="block text-gray-700 hover:text-gold font-medium">Portfolio</a>
+	            <a href="#contact" class="block text-gray-700 hover:text-gold font-medium">Contact</a>
+	        </div>
+	    </div>
+	</nav>
+	
+	<!-- Hero Section -->
+	<section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4">
+	    <div class="max-w-4xl mx-auto animate-fade-in">
+	        <p class="text-gold font-medium tracking-widest uppercase mb-4 animate-fade-in stagger-1">Welcome to Dronacharya Creation</p>
+	        <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 leading-tight animate-fade-in stagger-2">
+	            Crafting Visual Stories with<br><span class="text-gold">Precision & Passion</span>
+	        </h1>
+	        <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto animate-fade-in stagger-3">
+	            Dronacharya Creation – Capturing Moments from Every Angle
+	        </p>
+	        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in stagger-4">
+	            <a href="#portfolio" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg tracking-wide shadow-lg">
+	                View Portfolio
+	            </a>
+	            <a href="#contact" class="bg-transparent border-2 border-gold text-gold px-8 py-4 rounded-full font-semibold text-lg tracking-wide hover:bg-gold hover:text-white transition-all duration-300">
+	                Contact Us
+	            </a>
+	        </div>
+	    </div>
+	    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+	        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+	        </svg>
+	    </div>
+	</section>
+	
+	<!-- About Section -->
+	<section id="about" class="py-20 px-4 bg-white">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="grid md:grid-cols-2 gap-12 items-center">
+	            <div class="animate-fade-in">
+	                <p class="text-gold font-medium tracking-widest uppercase mb-2">About Us</p>
+	                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Creating Visual Masterpieces</h2>
+	                <div class="w-16 h-1 bg-gold mb-6"></div>
+	                <p class="text-gray-600 leading-relaxed mb-6">
+	                    Dronacharya Creation is a creative studio specializing in cinematic photography, drone videography, and professional video editing. We bring stories to life through high-quality visuals, creativity, and cutting-edge technology.
+	                </p>
+	                <p class="text-gray-600 leading-relaxed">
+	                    With years of experience and a passion for visual storytelling, we transform ordinary moments into extraordinary memories. Our team of skilled professionals uses the latest equipment and techniques to deliver stunning results that exceed expectations.
+	                </p>
+	            </div>
+	            <div class="grid grid-cols-2 gap-4 animate-fade-in stagger-2">
+	                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Photography" class="rounded-lg shadow-lg w-full h-48 object-cover">
+	                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Videography" class="rounded-lg shadow-lg w-full h-48 object-cover mt-8">
+	                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Drone" class="rounded-lg shadow-lg w-full h-48 object-cover">
+	                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Editing" class="rounded-lg shadow-lg w-full h-48 object-cover mt-8">
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Services Section -->
+	<section id="services" class="py-20 px-4 bg-gray-50">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="text-center mb-16 animate-fade-in">
+	            <p class="text-gold font-medium tracking-widest uppercase mb-2">What We Offer</p>
+	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+	            <div class="w-16 h-1 bg-gold mx-auto"></div>
+	        </div>
+	        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+	            <!-- Photography -->
+	            <div class="card-hover bg-white rounded-xl p-8 text-center shadow-md animate-fade-in stagger-1">
+	                <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+	                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+	                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+	                    </svg>
+	                </div>
+	                <h3 class="text-xl font-bold text-gray-900 mb-3">Photography</h3>
+	                <p class="text-gray-600">Wedding, events, portraits, and creative photography sessions</p>
+	            </div>
+	            <!-- Videography -->
+	            <div class="card-hover bg-white rounded-xl p-8 text-center shadow-md animate-fade-in stagger-2">
+	                <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+	                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+	                    </svg>
+	                </div>
+	                <h3 class="text-xl font-bold text-gray-900 mb-3">Videography</h3>
+	                <p class="text-gray-600">Cinematic shoots, promotional videos, and social media content</p>
+	            </div>
+	            <!-- Drone Shoots -->
+	            <div class="card-hover bg-white rounded-xl p-8 text-center shadow-md animate-fade-in stagger-3">
+	                <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+	                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+	                    </svg>
+	                </div>
+	                <h3 class="text-xl font-bold text-gray-900 mb-3">Drone Shoots</h3>
+	                <p class="text-gray-600">Aerial photography & videography for stunning perspectives</p>
+	            </div>
+	            <!-- Video Editing -->
+	            <div class="card-hover bg-white rounded-xl p-8 text-center shadow-md animate-fade-in stagger-4">
+	                <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+	                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+	                    </svg>
+	                </div>
+	                <h3 class="text-xl font-bold text-gray-900 mb-3">Video Editing</h3>
+	                <p class="text-gray-600">Professional edits, color grading, and post-production</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Portfolio Section -->
+	<section id="portfolio" class="py-20 px-4 bg-white">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="text-center mb-12 animate-fade-in">
+	            <p class="text-gold font-medium tracking-widest uppercase mb-2">Our Work</p>
+	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Portfolio</h2>
+	            <div class="w-16 h-1 bg-gold mx-auto"></div>
+	        </div>
+	        <!-- Portfolio Filters -->
+	        <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
+	            <button class="portfolio-filter active px-6 py-2 rounded-full bg-gold text-white font-medium transition-all" data-filter="all">All</button>
+	            <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gold hover:text-white transition-all" data-filter="wedding">Weddings</button>
+	            <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gold hover:text-white transition-all" data-filter="events">Events</button>
+	            <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gold hover:text-white transition-all" data-filter="drone">Drone Shots</button>
+	            <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gold hover:text-white transition-all" data-filter="edits">Edits</button>
+	        </div>
+	        <!-- Portfolio Grid -->
+	        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-fade-in" id="portfolio-grid">
+	            <!-- Wedding 1 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="wedding">
+	                <img src="images/couple.jpeg" alt="Wedding" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Wedding Photography</span>
+	                </div>
+	            </div>
+	            <!-- Events 1 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="events">
+	                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Event" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Corporate Event</span>
+	                </div>
+	            </div>
+	            <!-- Drone 1 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="drone">
+	                <img src="images/village.jpeg" alt="Drone" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Aerial Landscape</span>
+	                </div>
+	            </div>
+	            <!-- Edits 1 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="edits">
+	                <img src="images/image1.jpeg" alt="Edit" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Color Grading</span>
+	                </div>
+	            </div>
+	            <!-- Wedding 2 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="wedding">
+	                <img src="images/babyshower.jpeg" alt="Wedding" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">BabyShower Moments</span>
+	                </div>
+	            </div>
+	            <!-- Events 2 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="events">
+	                <img src="images/image.jpeg" alt="Event" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Couple Moments</span>
+	                </div>
+	            </div>
+	            <!-- Drone 2 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="drone">
+	                <img src="images/bride.jpeg" alt="Drone" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Mountain View</span>
+	                </div>
+	            </div>
+	            <!-- Edits 2 -->
+	            <div class="gallery-item rounded-lg overflow-hidden cursor-pointer" data-category="edits">
+	                <img src="images/beach.jpeg" alt="Edit" class="w-full h-48 object-cover">
+	                <div class="gallery-overlay">
+	                    <span class="text-white font-semibold">Video Sequence</span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Why Choose Us Section -->
+	<section class="py-20 px-4 parallax-section bg-gray-900 text-white" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="text-center mb-16 animate-fade-in">
+	            <p class="text-gold font-medium tracking-widest uppercase mb-2">Why Us?</p>
+	            <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Dronacharya Creation</h2>
+	            <div class="w-16 h-1 bg-gold mx-auto"></div>
+	        </div>
+	        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+	            <div class="animate-fade-in stagger-1">
+	                <div class="text-4xl mb-4">✨</div>
+	                <h3 class="font-semibold text-lg mb-2">High-Quality Visuals</h3>
+	                <p class="text-gray-400 text-sm">Stunning results that stand out</p>
+	            </div>
+	            <div class="animate-fade-in stagger-2">
+	                <div class="text-4xl mb-4">📹</div>
+	                <h3 class="font-semibold text-lg mb-2">Professional Equipment</h3>
+	                <p class="text-gray-400 text-sm">Latest gear for best results</p>
+	            </div>
+	            <div class="animate-fade-in stagger-3">
+	                <div class="text-4xl mb-4">🎨</div>
+	                <h3 class="font-semibold text-lg mb-2">Creative Storytelling</h3>
+	                <p class="text-gray-400 text-sm">Unique narratives that captivate</p>
+	            </div>
+	            <div class="animate-fade-in stagger-4">
+	                <div class="text-4xl mb-4">⚡</div>
+	                <h3 class="font-semibold text-lg mb-2">Timely Delivery</h3>
+	                <p class="text-gray-400 text-sm">Projects delivered on schedule</p>
+	            </div>
+	            <div class="animate-fade-in stagger-5">
+	                <div class="text-4xl mb-4">❤️</div>
+	                <h3 class="font-semibold text-lg mb-2">Client Satisfaction</h3>
+	                <p class="text-gray-400 text-sm">Happy clients are our priority</p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Testimonials Section -->
+	<section class="py-20 px-4 bg-gray-50">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="text-center mb-16 animate-fade-in">
+	            <p class="text-gold font-medium tracking-widest uppercase mb-2">Testimonials</p>
+	            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Clients Say</h2>
+	            <div class="w-16 h-1 bg-gold mx-auto"></div>
+	        </div>
+	        <div class="grid md:grid-cols-3 gap-8">
+	            <div class="testimonial-card rounded-xl p-8 shadow-lg animate-fade-in stagger-1">
+	                <div class="flex items-center mb-4">
+	                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+	                    <div>
+	                        <h4 class="font-semibold text-gray-900">Priya Sharma</h4>
+	                        <p class="text-gold text-sm">Wedding Client</p>
+	                    </div>
+	                </div>
+	                <p class="text-gray-600 italic">"Dronacharya Creation captured our wedding moments beautifully. The drone footage added a cinematic touch that left everyone speechless!"</p>
+	                <div class="text-gold mt-4">★★★★★</div>
+	            </div>
+	            <div class="testimonial-card rounded-xl p-8 shadow-lg animate-fade-in stagger-2">
+	                <div class="flex items-center mb-4">
+	                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+	                    <div>
+	                        <h4 class="font-semibold text-gray-900">Rahul Verma</h4>
+	                        <p class="text-gold text-sm">Corporate Client</p>
+	                    </div>
+	                </div>
+	                <p class="text-gray-600 italic">"Professional, creative, and extremely talented. They delivered our corporate video ahead of schedule and exceeded all expectations."</p>
+	                <div class="text-gold mt-4">★★★★★</div>
+	            </div>
+	            <div class="testimonial-card rounded-xl p-8 shadow-lg animate-fade-in stagger-3">
+	                <div class="flex items-center mb-4">
+	                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+	                    <div>
+	                        <h4 class="font-semibold text-gray-900">Anita Desai</h4>
+	                        <p class="text-gold text-sm">Event Planner</p>
+	                    </div>
+	                </div>
+	                <p class="text-gray-600 italic">"Working with Dronacharya Creation was a pleasure. Their attention to detail and creative vision made our event truly memorable."</p>
+	                <div class="text-gold mt-4">★★★★★</div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Contact Section -->
+	<section id="contact" class="py-20 px-4 bg-white">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="grid md:grid-cols-2 gap-12">
+	            <div class="animate-fade-in">
+	                <p class="text-gold font-medium tracking-widest uppercase mb-2">Get In Touch</p>
+	                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact Us</h2>
+	                <div class="w-16 h-1 bg-gold mb-8"></div>
+	                <p class="text-gray-600 mb-8">Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+	                <div class="space-y-4 mb-8">
+	                    <div class="flex items-center space-x-4">
+	                        <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center">
+	                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+	                            </svg>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-medium">Phone</p>
+	                            <p class="text-gray-600">+91 98765 43210</p>
+	                        </div>
+	                    </div>
+	                    <div class="flex items-center space-x-4">
+	                        <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center">
+	                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+	                            </svg>
+	                        </div>
+	                        <div>
+	                            <p class="text-gray-900 font-medium">Email</p>
+	                            <p class="text-gray-600">info@dronacharyacreation.com</p>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="flex space-x-4">
+	                    <a href="https://www.instagram.com/dronacharya_creation" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+	                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+	                    </a>
+	                    <a href="https://www.youtube.com/@DronacharyaCreation" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gold hover:text-white transition-all">
+	                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+	                    </a>
+	                    <a href="https://wa.me/918530790187" target="_blank"
+   class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center 
+   hover:bg-gold hover:text-white transition-all">
+
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .05 5.37.05 12c0 2.12.55 4.2 1.6 6.04L0 24l6.18-1.62A11.93 11.93 0 0012.05 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.53-8.52zM12.05 22c-1.9 0-3.75-.5-5.37-1.44l-.38-.22-3.67.96.98-3.57-.25-.37A9.93 9.93 0 012.05 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.48-7.36c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.8-1.68-2.1-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.16 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+    </svg>
+
+</a>
+	                </div>
+	            </div>
+	            <div class="animate-fade-in stagger-2">
+	                <form id="contact-form" class="space-y-6">
+	                    <div>
+	                        <label class="block text-gray-700 font-medium mb-2">Name</label>
+	                        <input type="text" name="name" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all" placeholder="Your Name" required>
+	                    </div>
+	                    <div>
+	                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+	                        <input type="email" name="email" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all" placeholder="your@email.com" required>
+	                    </div>
+	                    <div>
+	                        <label class="block text-gray-700 font-medium mb-2">Phone</label>
+	                        <input type="tel" name="phone" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all" placeholder="Your Phone Number">
+	                    </div>
+	                    <div>
+	                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+	                        <textarea name="message" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all h-32 resize-none" placeholder="Tell us about your project..." required></textarea>
+	                    </div>
+	                    <button type="submit" class="btn-primary w-full text-white py-4 rounded-lg font-semibold text-lg">
+	                        Send Message
+	                    </button>
+	                    <p id="responseMsg" style="font-weight:bold; margin-top:10px;"></p>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- WhatsApp Floating Button -->
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/918530790187" target="_blank"
+   class="fixed bottom-5 right-5 z-50">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp"
+         class="w-14 h-14 drop-shadow-lg hover:scale-105 transition duration-200">
+
+</a>  
+	</section>
+	
+	<!-- Footer -->
+	<footer class="bg-gray-900 text-white py-12 px-4">
+	    <div class="max-w-6xl mx-auto">
+	        <div class="grid md:grid-cols-4 gap-8 mb-8">
+	            <div>
+	                <div class="flex items-center space-x-2 mb-4">
+	                    <div class="w-10 h-10 gold-gradient rounded-full flex items-center justify-center">
+	                        <span class="text-white font-bold text-lg">DC</span>
+	                    </div>
+	                    <span class="font-serif text-xl font-semibold text-gold">Dronacharya Creation</span>
+	                </div>
+	                <p class="text-gray-400">Crafting visual stories with precision and passion since 2015.</p>
+	            </div>
+	            <div>
+	                <h4 class="font-semibold text-lg mb-4 text-gold">Quick Links</h4>
+	                <ul class="space-y-2">
+	                    <li><a href="#home" class="text-gray-400 hover:text-gold transition-colors">Home</a></li>
+	                    <li><a href="#services" class="text-gray-400 hover:text-gold transition-colors">Services</a></li>
+	                    <li><a href="#portfolio" class="text-gray-400 hover:text-gold transition-colors">Portfolio</a></li>
+	                    <li><a href="#contact" class="text-gray-400 hover:text-gold transition-colors">Contact</a></li>
+	                </ul>
+	            </div>
+	            <div>
+	                <h4 class="font-semibold text-lg mb-4 text-gold">Contact Info</h4>
+	                <ul class="space-y-2 text-gray-400">
+	                    <li>+91 98765 43210</li>
+	                    <li>info@dronacharyacreation.com</li>
+	                    <li>Mumbai, India</li>
+	                </ul>
+	            </div>
+	            <div>
+	                <h4 class="font-semibold text-lg mb-4 text-gold">Follow Us</h4>
+	                <div class="flex space-x-4">
+	                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gold transition-all">
+	                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+	                    </a>
+	                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gold transition-all">
+	                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+	                    </a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="border-t border-gray-800 pt-8 text-center">
+	            <p class="text-gray-400">&copy; 2024 Dronacharya Creation. All rights reserved.</p>
+	        </div>
+	    </div>
+	</footer>
+	
+	<script>
+	    // Mobile menu toggle
+	    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+	        const menu = document.getElementById('mobile-menu');
+	        menu.classList.toggle('hidden');
+	    });
+	
+	    // Smooth scrolling for navigation links
+	    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	        anchor.addEventListener('click', function (e) {
+	            e.preventDefault();
+	            const target = document.querySelector(this.getAttribute('href'));
+	            if (target) {
+	                target.scrollIntoView({
+	                    behavior: 'smooth',
+	                    block: 'start'
+	                });
+	                // Close mobile menu if open
+	                document.getElementById('mobile-menu').classList.add('hidden');
+	            }
+	        });
+	    });
+	
+	    // Portfolio filter functionality
+	    document.querySelectorAll('.portfolio-filter').forEach(button => {
+	        button.addEventListener('click', function() {
+	            // Update active button
+	            document.querySelectorAll('.portfolio-filter').forEach(btn => {
+	                btn.classList.remove('active', 'bg-gold', 'text-white');
+	                btn.classList.add('bg-gray-200', 'text-gray-700');
+	            });
+	            this.classList.add('active', 'bg-gold', 'text-white');
+	            this.classList.remove('bg-gray-200', 'text-gray-700');
+	
+	            // Filter portfolio items
+	            const filter = this.getAttribute('data-filter');
+	            const items = document.querySelectorAll('#portfolio-grid .gallery-item');
+	
+	            items.forEach(item => {
+	                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+	                    item.style.display = 'block';
+	                    item.style.animation = 'fadeIn 0.5s ease';
+	                } else {
+	                    item.style.display = 'none';
+	                }
+	            });
+	        });
+	    });
+	
+	    // Contact form handling
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let btn = this.querySelector("button");
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+
+    let data = new URLSearchParams();
+    data.append("name", this.name.value);
+    data.append("email", this.email.value);
+    data.append("phone", this.phone.value);
+    data.append("message", this.message.value);
+
+    fetch("/aidc/SendEmailServlet", {   // ✅ FINAL FIX
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: data
+    })
+    .then(res => {
+        console.log("Status:", res.status);
+        if (!res.ok) {
+            throw new Error("HTTP error " + res.status);
+        }
+        return res.text();
+    })
+    .then(response => {
+        console.log("Response:", response);
+
+        let msg = document.getElementById("responseMsg");
+
+        if (response.includes("success")) {
+            msg.innerText = "✅ Thank you! Your message has been sent.";
+            msg.style.color = "green";
+
+            document.getElementById("contact-form").reset();
+
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+
+        } else {
+            msg.innerText = "❌ Sorry, we couldn't connect. Try again.";
+            msg.style.color = "red";
+            btn.disabled = false;
+            btn.innerText = "Send Message";
+        }
+    })
+    .catch(error => {
+        console.error("Fetch Error:", error);
+        document.getElementById("responseMsg").innerText = "⚠️ Server error!";
+        btn.disabled = false;
+        btn.innerText = "Send Message";
+    });
+});
+	    
+	    // Navbar scroll effect
+	    window.addEventListener('scroll', function() {
+	        const navbar = document.getElementById('navbar');
+	        if (window.scrollY > 50) {
+	            navbar.classList.add('shadow-md');
+	        } else {
+	            navbar.classList.remove('shadow-md');
+	        }
+	    });
+	
+	    // Add animation on scroll
+	    const observerOptions = {
+	        root: null,
+	        rootMargin: '0px',
+	        threshold: 0.1
+	    };
+	
+	    const observer = new IntersectionObserver((entries) => {
+	        entries.forEach(entry => {
+	            if (entry.isIntersecting) {
+	                entry.target.classList.add('animate-fade-in');
+	            }
+	        });
+	    }, observerOptions);
+	
+	    // Observe elements
+	    document.querySelectorAll('section > div').forEach(el => {
+	        observer.observe(el);
+	    });
+	</script>
+	</body>
+	</html>
